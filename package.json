@@ -5,9 +5,10 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint server",
-    "test": "yarn lint & mocha --exit",
-    "precommit": "yarn test",
-    "prepush": "yarn test"
+    "test": "yarn lint & mocha",
+    "test-husky": "yarn lint & mocha --exit",
+    "precommit": "yarn test-husky",
+    "prepush": "yarn test-husky"
   },
   "dependencies": {
     "chai": "^4.1.2",
