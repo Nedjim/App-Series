@@ -11,3 +11,5 @@ app.listen(config.port, () => {
   /* eslint-disable no-console */
   console.log(`The application is running on localhost:${config.port}`)
 })
+
+module.exports = app;
