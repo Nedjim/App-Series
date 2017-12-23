@@ -4,8 +4,10 @@
   "main": "server/index.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha",
-    "lint": "eslint server"
+    "lint": "eslint server",
+    "test": "yarn lint & mocha --exit",
+    "precommit": "yarn test",
+    "prepush": "yarn test"
   },
   "dependencies": {
     "chai": "^4.1.2",
@@ -21,6 +23,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-mocha": "^4.11.0",
     "eslint-plugin-react": "^7.5.1",
+    "husky": "^0.14.3",
     "request": "^2.83.0"
   }
 }

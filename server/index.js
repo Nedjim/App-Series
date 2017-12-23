@@ -12,4 +12,4 @@ app.listen(config.port, () => {
   console.log(`The application is running on localhost:${config.port}`)
 })
 
-module.exports = app;
+module.exports = app
