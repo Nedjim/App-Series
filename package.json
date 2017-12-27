@@ -1,21 +1,25 @@
 {
   "name": "app-series",
   "version": "1.0.0",
-  "main": "server/index.js",
+  "main": "server/server.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint server",
-    "test": "yarn lint & mocha",
+    "start": "nodemon server/server.js",
+    "lint": "eslint .",
+    "test": "mocha --watch",
     "test-husky": "yarn lint & mocha --exit",
     "precommit": "yarn test-husky",
     "prepush": "yarn test-husky"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "mocha": "^4.0.1"
+    "jade": "^1.11.0",
+    "mocha": "^4.0.1",
+    "supertest": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^4.13.1",
