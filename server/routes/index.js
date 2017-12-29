@@ -6,8 +6,8 @@ router.get('/', (req, res) => {
   res.render('home')
 })
 
-// router.post('/signin', (req, res) => {
-//   res.status(200)
-// })
+router.post('/register', (req, res) => {
+  res.json(req.body)
+})
 
 module.exports = router
