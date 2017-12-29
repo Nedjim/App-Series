@@ -12,8 +12,8 @@ describe('HOME', () => {
     get: request.get('/'),
   }
   it('GET should return status 200', async () => {
-    const result = await Request.get
-    expect(result.statusCode).to.equal(200)
+    const res = await Request.get
+    expect(res.statusCode).to.equal(200)
   })
 })
 
@@ -23,13 +23,11 @@ describe('REGISTER', () => {
     post: request.post('/register').send(this.input),
   }
 
-  it('POST should return status 200', async () => {
-    const result = await Request.post
-    expect(result.statusCode).to.equal(200)
-  })
-
-  it('POST should contain correct input', async () => {
-    const result = await Request.post
-    expect(result).to.be.a('object')
+  it('POST should add a new user', async () => {
+    const res = await Request.post
+    expect(res.statusCode).to.equal(200)
+    expect(res.body).to.be.a('object')
+    expect(res.body).to.have.property('message')
+    expect(res.body.message).to.equal('Nouvel utilisateur ajouté')
   })
 })

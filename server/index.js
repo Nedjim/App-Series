@@ -12,6 +12,8 @@ const app = express()
 app.set('view engine', 'jade')
 
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 
 app.use('/', homeRoute)
 app.use('/register', registerRoute)
