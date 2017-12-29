@@ -14,5 +14,4 @@ module.exports.connect = (uri) => {
     // eslint-disable-next-line no-console
     console.log('Connection succes')
   })
-  require('./user')
 }
