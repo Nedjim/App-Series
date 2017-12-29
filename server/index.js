@@ -2,16 +2,19 @@ const express = require('express')
 const bodyParser = require('body-parser')
 
 const config = require('./config.js')
-const mainRoutes = require('./routes')
+const homeRoute = require('./routes/home')
+const registerRoute = require('./routes/register')
 
-require('./models').connect(config.db_host)
+require('./models/db_connexion').connect(config.db_host)
 
 const app = express()
 
 app.set('view engine', 'jade')
 
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(mainRoutes)
+
+app.use('/', homeRoute)
+app.use('/register', registerRoute)
 
 app.listen(config.port, () => {
   // eslint-disable-next-line no-console
