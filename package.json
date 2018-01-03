@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server",
     "lint": "eslint .",
-    "test": "mocha",
+    "test": "mocha ",
     "test-husky": "yarn lint & mocha --exit",
     "precommit": "yarn test-husky",
     "prepush": "yarn test-husky"
