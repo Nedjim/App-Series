@@ -7,7 +7,7 @@ const app = require('../server/')
 chai.use(chaiHttp)
 const request = chai.request(app)
 
-describe('HOME', () => {
+describe('/', () => {
   const Request = {
     get: request.get('/'),
   }
@@ -17,7 +17,7 @@ describe('HOME', () => {
   })
 })
 
-describe('REGISTER', () => {
+describe('/register', () => {
   const Request = {
     input: { name: 'Nedjim', pseudo: 'Jijiim', password: 'admin' },
     post: request.post('/register').send(this.input),

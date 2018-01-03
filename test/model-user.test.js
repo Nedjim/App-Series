@@ -2,7 +2,7 @@
 const { expect } = require('chai')
 const User = require('../server/models/user')
 
-describe('CREATE USER', () => {
+describe('MODELE USER', () => {
   const user = new User()
 
   user.name = 'Nedjim'
@@ -17,7 +17,7 @@ describe('CREATE USER', () => {
     expect(newUser).to.have.property('password')
   })
 
-  it('Propertie name should be a string and required', () => {
+  it('Propertie name should be a string', () => {
     expect(user.name).to.be.a('string')
   })
   it('Propertie pseudo should be a string', () => {

@@ -6,6 +6,6 @@ module.exports = {
     "rules" : {
         "semi": [2, "never"],
         "no-unexpected-multiline": 2,
-        "mocha/no-exclusive-tests": "error"
+        "mocha/no-exclusive-tests": "error",
      }
 };
