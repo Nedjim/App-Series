@@ -22,6 +22,7 @@
     "jade": "^1.11.0",
     "mocha": "^4.0.1",
     "mongoose": "^5.0.0-rc0",
+    "sinon": "^4.1.6",
     "superagent": "^3.8.2",
     "supertest": "^3.0.0"
   },

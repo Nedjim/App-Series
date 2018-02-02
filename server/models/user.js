@@ -1,5 +1,8 @@
+/* eslint func-names: ["error", "never"] */
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
+
+const SALT_WORK_FACTOR = 10
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -20,15 +23,16 @@ const UserSchema = new mongoose.Schema({
   },
 })
 
-UserSchema.pre('save', (next) => {
+UserSchema.pre('save', function (next) {
   const user = this
-  bcrypt.hash(user.password, 10, (err, hash) => {
-    if (err) {
-      next(err)
-    } else {
+
+  bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
+    if (err) next(err)
+    bcrypt.hash(user.password, salt, (error, hash) => {
+      if (error) next(error)
       user.password = hash
       next()
-    }
+    })
   })
 })
 
