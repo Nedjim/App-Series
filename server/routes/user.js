@@ -25,13 +25,15 @@ const getUsers = (req, res) => {
 
 const getUser = (req, res) => {
   User.findById(req.params.id, (err, user) => {
-    res.json(user)
+    if (err) return res.send(err)
+    return res.json(user)
   })
 }
 
 const deleteUser = (req, res) => {
   User.remove({ _id: req.params.id }, (err, result) => {
-    res.json({ message: 'Utilisateur supprimé avec succès!', result })
+    if (err) return res.send(err)
+    return res.json({ message: 'Utilisateur supprimé avec succès!', result })
   })
 }
 
