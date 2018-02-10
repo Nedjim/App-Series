@@ -23,4 +23,19 @@ const getUsers = (req, res) => {
   })
 }
 
-module.exports = { postUser, getUsers }
+const getUser = (req, res) => {
+  User.findById(req.params.id, (err, user) => {
+    res.json(user)
+  })
+}
+
+const deleteUser = (req, res) => {
+  User.remove({ _id: req.params.id }, (err, result) => {
+    res.json({ message: 'Utilisateur supprimé avec succès!', result })
+  })
+}
+
+module.exports = {
+  postUser, getUsers, getUser, deleteUser,
+}
+

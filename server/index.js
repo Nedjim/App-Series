@@ -20,6 +20,10 @@ app.route('/users')
   .get(user.getUsers)
   .post(user.postUser)
 
+app.route('/user/:id')
+  .get(user.getUser)
+  .delete(user.deleteUser)
+
 app.listen(config.port, () => {
   // eslint-disable-next-line no-console
   console.log(`The application is running on localhost:${config.port}`)
