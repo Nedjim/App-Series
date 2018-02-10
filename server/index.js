@@ -16,11 +16,9 @@ app.use(bodyParser.json())
 
 app.use('/', homeRoute)
 
-app.route('/register')
-  .post(user.postUser)
-
 app.route('/users')
   .get(user.getUsers)
+  .post(user.postUser)
 
 app.listen(config.port, () => {
   // eslint-disable-next-line no-console
