@@ -25,7 +25,7 @@ describe('USERS', () => {
     getUsers: request.get('/users'),
     postUser: request.post('/users').send({ name: 'Mimimi', pseudo: 'Mimimi', password: 'testpwd' }),
     getUser: request.get(`/user/${this.UserId}`),
-    deleteUser: request.delete(`/user/${this.UserId}`),
+    deleteUser: request.post(`/user/delete/${this.UserId}`),
   }
 
   describe('/users', () => {

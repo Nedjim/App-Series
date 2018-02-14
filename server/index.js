@@ -20,9 +20,11 @@ app.route('/users')
   .get(user.getUsers)
   .post(user.postUser)
 
+app.route('/user/delete/:id')
+  .post(user.deleteUser)
+
 app.route('/user/:id')
   .get(user.getUser)
-  .delete(user.deleteUser)
 
 app.listen(config.port, () => {
   // eslint-disable-next-line no-console

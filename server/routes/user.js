@@ -16,13 +16,6 @@ const postUser = (req, res) => {
   })
 }
 
-const getUsers = (req, res) => {
-  User.find((err, users) => {
-    if (err) return res.send(err)
-    return res.json(users)
-  })
-}
-
 const getUser = (req, res) => {
   User.findById(req.params.id, (err, user) => {
     if (err) return res.send(err)
@@ -31,9 +24,17 @@ const getUser = (req, res) => {
 }
 
 const deleteUser = (req, res) => {
-  User.remove({ _id: req.params.id }, (err, result) => {
+  User.remove({ _id: req.params.id }, (err) => {
     if (err) return res.send(err)
-    return res.json({ message: 'Utilisateur supprimé avec succès!', result })
+    return res.redirect('/users')
+  })
+}
+
+const getUsers = (req, res) => {
+  User.find((err, users) => {
+    if (err) return res.send(err)
+    res.statusCode = 200
+    return res.render('users', { data: users })
   })
 }
 
