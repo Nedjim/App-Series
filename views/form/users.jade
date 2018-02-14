@@ -1,8 +1,9 @@
 h3 Gestion des utilisateurs
     each user in data
         div
-            form(method='post' action='/user/delete/' + user['_id'])
-                div.user
-                    span=user.name 
-                    p=user.pseudo
+            div.user
+                span=user.name 
+                p=user.pseudo
+                a(href='/user/' + user['_id']) Voir
+                form(method='post' action='/user/delete/' + user['_id'])
                     button(type='submit') Supprimer
